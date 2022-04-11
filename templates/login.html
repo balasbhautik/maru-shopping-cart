@@ -1,0 +1,56 @@
+{% extends 'basic.html'  %}
+{% block title %}LoginPage-Maru Shopping Cart {% endblock%}
+{% block body %}
+<style>
+        .bg{
+          background:#f57c00!important;
+        }
+
+
+    </style>
+    
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css'%}">
+
+<marquee class="ok">
+    Welcome to Maru Shopping Cart-Login Page
+</marquee>
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto">
+            <h3 class="alert alert-light border rounded">Login Here</h3>
+            <form action="{% url 'Login'%}" method="post">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                     {{error}}
+                </div>
+                {% endif %}
+                <!--email-->
+                <div class="from-group">
+                    <div class="mb-3">
+                        <label required for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control"  id="exampleFormControlInput4" value="{{value.email}}"
+                               placeholder="name@example.com">
+                    </div>
+
+                </div>
+                <!--password-->
+                <div class="from-group">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleFormControlInput5"
+                               placeholder="***********">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-warning col-lg-4">Login</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+{% endblock%}

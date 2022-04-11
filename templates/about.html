@@ -1,0 +1,30 @@
+{% extends 'basic.html'%}
+{% block title%}About page-MyAwesomeCart{% endblock %}
+{% block body %}
+<style>
+        .bg{
+          background:#f57c00!important;
+        }
+
+
+    </style>
+    
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css'%}">
+<marquee class="ok">
+    Welcome to Maru Shopping Cart- About Page
+</marquee>
+<div class="container">
+    <p class="display-4 pl-4 ml-4" style="color:blue">About Us</p>
+    <hr>
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Maru Shopping Cart</h1>
+        <p class="col-md-8 fs-4">Maru Shopping Cart is a Gujarat e-commerce company, headquartered in Junagadh, Rajkot, Surat, and incorporated in Ahmedabad as a private limited company. The company initially focused on online book sales before expanding into other product categories such as consumer electronics, fashion, home essentials, groceries, and lifestyle products.</p>
+
+      </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+{% block title%}Order Page - Maru Shopping Cart{% endblock%}
+{% block body%}
+<style>
+        .bg{
+          background:#f57c00!important;
+        }
+
+
+    </style>
+{% load cart %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css'%}">
+
+<marquee class="ok">
+    Welcome to Maru Shopping Cart-Order Page
+</marquee>
+<div class="container">
+    <div class="border rounded p-4 m-4">
+        <p><span class="display-4 pl-4 ml-4 "style="color:blue">Your Order</span></p>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr class="table-primary">
+                <th scope="col">Sno.</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+            <tr>
+
+                <th class="table-warning">{{forloop.counter}}</th>
+                <td><img style="height:80px;" class="rounded-circle" src="{{order.product.image.url}}"></td>
+                <td class="table-danger">{{order.product.name}}</td>
+                <td class="table-info">{{order.date}}</td>
+                <td class="table-secondary">{{order.price|currency}}</td>
+                <td class="table-light">{{order.quantity}}</td>
+                <td class="table-success">{{order.quantity|multiply:order.price|currency}}</td>
+                {% if order.status%}
+                <td class="table-dark"><small class="">Completed</small></td>
+                {%else%}
+                <td class="table-dark"><small class="">Pending</small></td>
+                {% endif %}
+
+            </tr>
+            {% endfor%}
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+
+{% endblock%}

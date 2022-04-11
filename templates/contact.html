@@ -1,0 +1,44 @@
+{% extends 'basic.html'%}
+{% block title%}Contact page-My Shopping Cart{% endblock %}
+{% block body %}
+<style>
+        .bg{
+          background:#f57c00!important;
+        }
+
+
+    </style>
+    
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css'%}">
+<marquee class="ok">
+    Welcome to Maru Shopping Cart- Contact Page
+</marquee>
+<div class="container">
+    <p class="display-4 pl-4 ml-4" style="color:blue">Contact Us</p>
+    <hr>
+    <form action="/contact" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" required="True" name="name" class="form-control" id="exampleFormControlInput1" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" required="True" name="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">phone</label>
+            <input type="tel" required="True" name="phone" class="form-control" id="exampleFormControlInput3" placeholder="+91 9999999999">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+            <textarea required="True" name="address" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+            <button type="submit" class="btn btn-warning mt-3">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock%}
